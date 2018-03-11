@@ -17,10 +17,10 @@ UofT E-mail Address: stefan.mitic@mail.utoronto.ca
 
 Team Member C
 -------------
-First Name: 
-Last Name:
-Student Number:
-UofT E-mail Address:
+First Name: Hessamoddin
+Last Name: Sharifpour
+Student Number: 1002376546
+UofT E-mail Address: hessamoddin.sharifpour@mail.utoronto.ca
 
 Team Member D
 -------------
