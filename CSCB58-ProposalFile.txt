@@ -24,10 +24,10 @@ UofT E-mail Address: hessamoddin.sharifpour@mail.utoronto.ca
 
 Team Member D
 -------------
-First Name: 
-Last Name:
-Student Number:
-UofT E-mail Address:
+First Name: Arik
+Last Name: Bautista
+Student Number: 1003299192
+UofT E-mail Address: arik.bautista@mail.utoronto.ca
 
 ---------------
 Project Details
