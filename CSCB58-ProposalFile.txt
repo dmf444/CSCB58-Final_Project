@@ -1,0 +1,93 @@
+CSCB58 Project File: Winter 2018
+
+Team Member A
+-------------
+First Name: David
+Last Name: Fernandes
+Student Number: 1003155444
+UofT E-mail Address: david.fernandes@mail.utoronto.ca
+
+
+Team Member B
+-------------
+First Name: 
+Last Name:
+Student Number:
+UofT E-mail Address:
+
+Team Member C
+-------------
+First Name: 
+Last Name:
+Student Number:
+UofT E-mail Address:
+
+Team Member D
+-------------
+First Name: 
+Last Name:
+Student Number:
+UofT E-mail Address:
+
+---------------
+Project Details
+---------------
+
+Project Title: Guitar Hero 115
+
+Project Description:
+A single song version of guitar hero, built on the DE2-115 board.
+
+Video URL:
+
+Code URL: https://github.com/dmf444/CSCB58-Final_Project
+
+
+-----------
+Proposal
+-----------
+
+What do you plan to have completed by the end of the first lab session?:
+A single line of LEDs, loaded from some memory storage and shifted down to LEDR[0]. Once getting to LEDR[0], the player will have to click the button if LEDR[0] is on and not click it, should it be off.
+The intent of this phase is to show a proof of concept, make sure that the Shifters can be loaded from a ram module.
+
+What do you plan to have completed by the end of the second lab session?:
+By the end of this lab, we should have some way to output audio on a single track AND something simple that can be displayed on the monitor.
+
+What do you plan to have completed by the end of the third lab session?:
+3 to 4 track of data, sycronized to the screen and allowing for the guitar hero game to be played.
+
+What is your backup plan if things don't work out as planned?
+Due to the way we're intending to work on our project, each week, we should have something better than the last. If something in a given week doesn't work out,
+we can submit the work from week n-1.
+
+What hardware will you need beyond the DE2 board : 
+Speakers, with a standard 3.5mm input and a monitor.
+
+
+-----------
+Motivations
+-----------
+How does this project relate to the material covered in CSCB58?:
+
+Why is this project interesting/cool (for CSCB58 students, and for non CSCB58 students?):
+
+Why did you personally choose this project?:
+
+
+------------
+Attributions
+------------
+NOTHING ATM.
+
+
+------------
+Updates
+------------
+
+<Example update. Delte this and add your own updates after each lab session>
+Week 1: We built the hardware and tested the sensors. The distance sensor we had intended to use didn't work as
+expected (wasn't precise enough at further distances, only seems to work accurately within 5-10cm), so instead
+we've decided to change the project to use a light sensor instead. Had trouble getting the FSM to work (kept
+getting stuck in state 101, took longer to debug than expected), so we may not be able to add the
+high score feature, have updated that in the project description as (optional).
