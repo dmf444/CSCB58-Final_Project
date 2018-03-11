@@ -71,9 +71,10 @@ Motivations
 How does this project relate to the material covered in CSCB58?:
 
 Why is this project interesting/cool (for CSCB58 students, and for non CSCB58 students?):
+Because everyone has played or has been exposed to guitar hero or other rhythm games.
 
 Why did you personally choose this project?:
-
+The keys on the DE2 board reminded us of the buttons in Guitar Hero. It also seemed like a reasonable goal to accomplish.
 
 ------------
 Attributions
