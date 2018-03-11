@@ -10,10 +10,10 @@ UofT E-mail Address: david.fernandes@mail.utoronto.ca
 
 Team Member B
 -------------
-First Name: 
-Last Name:
-Student Number:
-UofT E-mail Address:
+First Name: Stefan
+Last Name: Mitic
+Student Number: 1003028225
+UofT E-mail Address: stefan.mitic@mail.utoronto.ca
 
 Team Member C
 -------------
