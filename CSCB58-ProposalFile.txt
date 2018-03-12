@@ -69,9 +69,11 @@ Speakers, with a standard 3.5mm input and a monitor.
 Motivations
 -----------
 How does this project relate to the material covered in CSCB58?:
+We've spent time learning about clocks, shifting, counters, hexidecimal displays and circuit logic. This project will incorporate much of what we've
+learned in labs and lectures, all while allowing us the opportunity to design a complex circuit in verilog. 
 
 Why is this project interesting/cool (for CSCB58 students, and for non CSCB58 students?):
-Because everyone has played or has been exposed to guitar hero or other rhythm games.
+Everyone, at some point, has played or been exposed to rhythm games. This project seeks to emulate something that anyone can pick up, play with and have fun.
 
 Why did you personally choose this project?:
 The keys on the DE2 board reminded us of the buttons in Guitar Hero. It also seemed like a reasonable goal to accomplish.
@@ -86,9 +88,4 @@ NOTHING ATM.
 Updates
 ------------
 
-<Example update. Delte this and add your own updates after each lab session>
-Week 1: We built the hardware and tested the sensors. The distance sensor we had intended to use didn't work as
-expected (wasn't precise enough at further distances, only seems to work accurately within 5-10cm), so instead
-we've decided to change the project to use a light sensor instead. Had trouble getting the FSM to work (kept
-getting stuck in state 101, took longer to debug than expected), so we may not be able to add the
-high score feature, have updated that in the project description as (optional).
+We've written our first project proposal.
