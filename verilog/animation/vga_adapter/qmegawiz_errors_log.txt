@@ -1,0 +1,19 @@
+
+
+/cmshome/miticste/Desktop/lab6-part2/vga_adapter/vga_pll.v
+
+Mar 08 04PM:33:58>: Error in CNX file format.
+
+Error messages are listed in file
+/cmshome/miticste/Desktop/lab6-part2/vga_adapter/vga_pll.cnxerr.
+
+Can't create the custom megafunction variation file(s)
+
+/cmshome/miticste/Desktop/lab6-part2/vga_adapter/vga_pll.v
+
+Mar 15 06PM:34:11>: Error in CNX file format.
+
+Error messages are listed in file
+/cmshome/miticste/Desktop/lab6-part2/vga_adapter/vga_pll.cnxerr.
+
+Can't create the custom megafunction variation file(s)
