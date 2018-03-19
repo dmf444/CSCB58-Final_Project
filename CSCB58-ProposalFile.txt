@@ -89,3 +89,8 @@ Updates
 ------------
 
 We've written our first project proposal.
+Week 1:
+- Created a prototype for the animation of a peg moving down the screen on the VGA display using a counter to keep track of the location and movement of the object.
+- Completed one track that was shifted and tested through the LEDs on a counter.
+- Wrote a complete game track that needs to be checked and tested.
+- Started working on the audio output for the game by downloading and removing unneccessary features in the audio files from Altera.
