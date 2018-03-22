@@ -82,7 +82,7 @@ module datapath(
     input resetn,
     output reg [6:0] x,
     output reg [6:0] y,
-    output reg [2:0] color,
+    output reg [2:0] color
     );
 
     reg [6:0]  x_state = 7'd0;
@@ -96,33 +96,36 @@ module datapath(
             counter <= 28'd0;
         end
         else begin
-            if (counter < 28'd2000000) begin
-                if (counter < 28'd16) begin
-                    y <= counter % 4;
-                    x <= x + 7'd1;
-                    if (x == 7'd4)
+            if (counter < 28'd20000020) begin
+                if (counter < 28'd17 && counter > 28'd0) begin
+						x <= x + 7'd1;
+                    if (x == 7'd3) begin
+								y <= y + 7'd1;
                         x <= 7'd0;
+							end
                     color <= 3'b100;
                 end
-                if (counter >= 28'd1000000) begin
-                    if (counter < 28'd1000016) begin
-                        y <= counter % 4;
-                        x <= x + 7'd1;
-                        if (x == 7'd4)
-                            x <= 7'd0;
+                if (counter >= 28'd10000000) begin
+					 if (counter == 28'd10000000)
+						y <= y_state;
+                    if (counter < 28'd10000017 && counter > 28'd10000000) begin
+                      x <= x + 7'd1;
+                        if (x == 7'd3) begin
+								y <= y + 7'd1;
+                        x <= 7'd0;
+							end
                         color <= 3'b000;
                     end
-                    if (counter == 28'd1000017) begin
+                    if (counter == 28'd10000018) begin
                         x_state <= x_state + 7'd1;
-                        y_state <= x_state + 7'd1;
+                        y_state <= y_state + 7'd1;
                     end
-                    if (counter == 28'd1000018)
+                    if (counter == 28'd4000019)
                         y <= y_state;
+								x <= 7'd0;
                 end
                 counter = counter + 1;
             end else begin
-                x_state <= 7'd0;
-                y_state <= 7'd0;
                 counter <= 11'd0;
             end
         end
