@@ -89,11 +89,11 @@ module datapath(
 
 	 reg [6:0]  x1 = 7'd0;
     reg [6:0]  y1 = 7'd0;
-	 reg [6:0]  x2 = 7'd70;
+	 reg [6:0]  x2 = 7'd20;
     reg [6:0]  y2 = 7'd0;
-	 reg [6:0]  x3 = 7'd140;
+	 reg [6:0]  x3 = 7'd40;
     reg [6:0]  y3 = 7'd0;
-	 reg [6:0]  x4 = 7'd210;
+	 reg [6:0]  x4 = 7'd60;
     reg [6:0]  y4 = 7'd0;
 	 reg [6:0]  x_state = 7'd0;
     reg [6:0]  y_state = 7'd0;
@@ -124,24 +124,24 @@ module datapath(
                         x1 <= 7'd0;
 							end
                 end
-					 if (counter == 28'd128) begin
+					 if (counter == 28'd129) begin
 						y1 <= y_state;
 						x1 <= 7'd0;
 						end
-						if (counter < 28'd256 && counter >= 28'd128) begin
+						if (counter < 28'd256 && counter >= 28'd129) begin
 						x <= x2;
 					 y <= y2;
 					 color <= 3'b110;
 					   if (counter != 28'd128) 
 							x2 <= x2 + 7'd1;
-                    if (x2 == 7'd85) begin
+                    if (x2 == 7'd35) begin
 								y2 <= y2 + 7'd1;
-                        x2 <= 7'd70;
+                        x2 <= 7'd20;
 							end
                 end
 					 if (counter == 28'd256) begin
 						y2 <= y2_state;
-						x2 <= 7'd70;
+						x2 <= 7'd20;
 						end
 						if (counter < 28'd384 && counter >= 28'd256) begin
 						x <= x3;
@@ -149,14 +149,14 @@ module datapath(
 					 color <= 3'b111;
 					   if (counter != 28'd256) 
 							x3 <= x3 + 7'd1;
-                    if (x3 == 7'd155) begin
+                    if (x3 == 7'd55) begin
 								y3 <= y3 + 7'd1;
-                        x3 <= 7'd140;
+                        x3 <= 7'd40;
 							end
                 end
 					 if (counter == 28'd384) begin
 						y3 <= y3_state;
-						x3 <= 7'd140;
+						x3 <= 7'd40;
 						end
 						if (counter < 28'd512 && counter >= 28'd384) begin
 						x <= x4;
@@ -164,14 +164,14 @@ module datapath(
 					 color <= 3'b011;
 					   if (counter != 28'd384) 
 							x4 <= x4 + 7'd1;
-                    if (x4 == 7'd225) begin
+                    if (x4 == 7'd75) begin
 								y4 <= y4 + 7'd1;
-                        x4 <= 7'd210;
+                        x4 <= 7'd60;
 							end
                 end
 					 if (counter == 28'd512) begin
 						y4 <= y4_state;
-						x4 <= 7'd210;
+						x4 <= 7'd60;
 						end
 					// DELETE
                 if (counter >= 28'd1000000) begin
@@ -200,9 +200,9 @@ module datapath(
 						    color <= 3'b000;
 							 if (counter != 28'd1000128)
 							   x2 <= x2 + 7'd1;
-							 if (x2 == 7'd85) begin
+							 if (x2 == 7'd35) begin
 								y2 <= y2 + 7'd1;
-                        x2 <= 7'd70;
+                        x2 <= 7'd20;
 							end
                     end
                     if (counter == 28'd1000256) begin
@@ -211,7 +211,7 @@ module datapath(
                     end
                     if (counter == 28'd1000257) begin
                         y2 <= y2_state;
-								x2 <= 7'd70;
+								x2 <= 7'd20;
 								end
 								if (counter < 28'd1000384 && counter >= 28'd1000256) begin
 								x <= x3;
@@ -219,9 +219,9 @@ module datapath(
 						    color <= 3'b000;
 							 if (counter != 28'd1000256)
 							   x3 <= x3 + 7'd1;
-							 if (x3 == 7'd155) begin
+							 if (x3 == 7'd55) begin
 								y3 <= y3 + 7'd1;
-                        x3 <= 7'd140;
+                        x3 <= 7'd40;
 							end
                     end
                     if (counter == 28'd1000384) begin
@@ -230,7 +230,7 @@ module datapath(
                     end
                     if (counter == 28'd1000385) begin
                         y3 <= y3_state;
-								x3 <= 7'd140;
+								x3 <= 7'd40;
 								end
 						if (counter < 28'd1000512 && counter >= 28'd1000384) begin
 						x <= x4;
@@ -238,9 +238,9 @@ module datapath(
 						    color <= 3'b000;
 							 if (counter != 28'd1000384)
 							   x4 <= x4 + 7'd1;
-							 if (x4 == 7'd225) begin
+							 if (x4 == 7'd75) begin
 								y4 <= y4 + 7'd1;
-                        x4 <= 7'd210;
+                        x4 <= 7'd60;
 							end
                     end
                     if (counter == 28'd1000512) begin
@@ -249,7 +249,7 @@ module datapath(
                     end
                     if (counter == 28'd1000513) begin
                         y4 <= y4_state;
-								x4 <= 7'd210;
+								x4 <= 7'd60;
 								end
                 end
                 counter = counter + 28'd1;
