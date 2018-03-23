@@ -69,6 +69,7 @@ module gameTest
     datapath d0(
         .clk(CLOCK_50),
         .resetn(resetn),
+		  .light(LEDR[0]),
         .x(x2),
 		.y(y),
         .color(colour)
@@ -80,13 +81,28 @@ endmodule
 module datapath(
     input clk,
     input resetn,
+	 output reg light,
     output reg [6:0] x,
     output reg [6:0] y,
     output reg [2:0] color
     );
 
-    reg [6:0]  x_state = 7'd0;
+	 reg [6:0]  x1 = 7'd0;
+    reg [6:0]  y1 = 7'd0;
+	 reg [6:0]  x2 = 7'd70;
+    reg [6:0]  y2 = 7'd0;
+	 reg [6:0]  x3 = 7'd140;
+    reg [6:0]  y3 = 7'd0;
+	 reg [6:0]  x4 = 7'd210;
+    reg [6:0]  y4 = 7'd0;
+	 reg [6:0]  x_state = 7'd0;
     reg [6:0]  y_state = 7'd0;
+	 reg [6:0]  x2_state = 7'd0;
+    reg [6:0]  y2_state = 7'd0;
+	 reg [6:0]  x3_state = 7'd0;
+    reg [6:0]  y3_state = 7'd0;
+	 reg [6:0]  x4_state = 7'd0;
+    reg [6:0]  y4_state = 7'd0;
     reg [27:0] counter = 28'd0;
     
     always@(posedge clk) begin
@@ -96,37 +112,150 @@ module datapath(
             counter <= 28'd0;
         end
         else begin
-            if (counter < 28'd20000020) begin
-                if (counter < 28'd17 && counter > 28'd0) begin
-						x <= x + 7'd1;
-                    if (x == 7'd3) begin
-								y <= y + 7'd1;
-                        x <= 7'd0;
+            if (counter < 28'd1000514) begin
+                if (counter < 28'd128) begin
+					 x <= x1;
+					 y <= y1;
+					 color <= 3'b100;
+					   if (counter != 28'd0) 
+							x1 <= x1 + 7'd1;
+                    if (x1 == 7'd15) begin
+								y1 <= y1 + 7'd1;
+                        x1 <= 7'd0;
 							end
-                    color <= 3'b100;
                 end
-                if (counter >= 28'd10000000) begin
-					 if (counter == 28'd10000000)
-						y <= y_state;
-                    if (counter < 28'd10000017 && counter > 28'd10000000) begin
-                      x <= x + 7'd1;
-                        if (x == 7'd3) begin
-								y <= y + 7'd1;
-                        x <= 7'd0;
+					 if (counter == 28'd128) begin
+						y1 <= y_state;
+						x1 <= 7'd0;
+						end
+						if (counter < 28'd256 && counter >= 28'd128) begin
+						x <= x2;
+					 y <= y2;
+					 color <= 3'b110;
+					   if (counter != 28'd128) 
+							x2 <= x2 + 7'd1;
+                    if (x2 == 7'd85) begin
+								y2 <= y2 + 7'd1;
+                        x2 <= 7'd70;
 							end
-                        color <= 3'b000;
+                end
+					 if (counter == 28'd256) begin
+						y2 <= y2_state;
+						x2 <= 7'd70;
+						end
+						if (counter < 28'd384 && counter >= 28'd256) begin
+						x <= x3;
+					 y <= y3;
+					 color <= 3'b111;
+					   if (counter != 28'd256) 
+							x3 <= x3 + 7'd1;
+                    if (x3 == 7'd155) begin
+								y3 <= y3 + 7'd1;
+                        x3 <= 7'd140;
+							end
+                end
+					 if (counter == 28'd384) begin
+						y3 <= y3_state;
+						x3 <= 7'd140;
+						end
+						if (counter < 28'd512 && counter >= 28'd384) begin
+						x <= x4;
+					 y <= y4;
+					 color <= 3'b011;
+					   if (counter != 28'd384) 
+							x4 <= x4 + 7'd1;
+                    if (x4 == 7'd225) begin
+								y4 <= y4 + 7'd1;
+                        x4 <= 7'd210;
+							end
+                end
+					 if (counter == 28'd512) begin
+						y4 <= y4_state;
+						x4 <= 7'd210;
+						end
+					// DELETE
+                if (counter >= 28'd1000000) begin
+                    if (counter < 28'd1000128) begin
+						  x <= x1;
+					 y <= y1;
+						    color <= 3'b000;
+							 if (counter != 28'd1000000)
+							   x1 <= x1 + 7'd1;
+							 if (x1 == 7'd15) begin
+								y1 <= y1 + 7'd1;
+                        x1 <= 7'd0;
+							end
                     end
-                    if (counter == 28'd10000018) begin
+                    if (counter == 28'd1000128) begin
                         x_state <= x_state + 7'd1;
                         y_state <= y_state + 7'd1;
                     end
-                    if (counter == 28'd4000019)
-                        y <= y_state;
-								x <= 7'd0;
+                    if (counter == 28'd1000129) begin
+                        y1 <= y_state;
+								x1 <= 7'd0;
+								end
+								if (counter < 28'd1000256 && counter >= 28'd1000128) begin
+								x <= x2;
+					 y <= y2;
+						    color <= 3'b000;
+							 if (counter != 28'd1000128)
+							   x2 <= x2 + 7'd1;
+							 if (x2 == 7'd85) begin
+								y2 <= y2 + 7'd1;
+                        x2 <= 7'd70;
+							end
+                    end
+                    if (counter == 28'd1000256) begin
+                        x2_state <= x2_state + 7'd1;
+                        y2_state <= y2_state + 7'd1;
+                    end
+                    if (counter == 28'd1000257) begin
+                        y2 <= y2_state;
+								x2 <= 7'd70;
+								end
+								if (counter < 28'd1000384 && counter >= 28'd1000256) begin
+								x <= x3;
+					 y <= y3;
+						    color <= 3'b000;
+							 if (counter != 28'd1000256)
+							   x3 <= x3 + 7'd1;
+							 if (x3 == 7'd155) begin
+								y3 <= y3 + 7'd1;
+                        x3 <= 7'd140;
+							end
+                    end
+                    if (counter == 28'd1000384) begin
+                        x3_state <= x3_state + 7'd1;
+                        y3_state <= y3_state + 7'd1;
+                    end
+                    if (counter == 28'd1000385) begin
+                        y3 <= y3_state;
+								x3 <= 7'd140;
+								end
+						if (counter < 28'd1000512 && counter >= 28'd1000384) begin
+						x <= x4;
+					 y <= y4;
+						    color <= 3'b000;
+							 if (counter != 28'd1000384)
+							   x4 <= x4 + 7'd1;
+							 if (x4 == 7'd225) begin
+								y4 <= y4 + 7'd1;
+                        x4 <= 7'd210;
+							end
+                    end
+                    if (counter == 28'd1000512) begin
+                        x4_state <= x4_state + 7'd1;
+                        y4_state <= y4_state + 7'd1;
+                    end
+                    if (counter == 28'd1000513) begin
+                        y4 <= y4_state;
+								x4 <= 7'd210;
+								end
                 end
-                counter = counter + 1;
-            end else begin
-                counter <= 11'd0;
+                counter = counter + 28'd1;
+            end 
+				else begin
+                counter <= 28'd0;
             end
         end
     end
