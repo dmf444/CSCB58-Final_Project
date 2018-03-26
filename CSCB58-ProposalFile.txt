@@ -94,3 +94,9 @@ Week 1:
 - Completed one track that is automatically shifted and tested through the LEDs on a counter.
 - Wrote a complete game track that needs to be checked and tested.
 - Started working on the audio output for the game by downloading Altera's Music Sythesizer Demonstration and removing unneccessary features from their verilog files.
+
+Week 2:
+-Prototype of one track completed using the DE2 board's LED's with Hex display as a scoreboard.
+-Able to output audio and learned how to modify the notes being outputted. It now outputs the first few seconds of the Mario Theme.
+-VGA display can now display 4 separate pegs moving down the screen. Now working on hardcoding each peg when/where to appear.
+-Need to start putting together the VGA diplay, the audio, and the responsive part of the game together.
