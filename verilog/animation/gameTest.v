@@ -60,7 +60,7 @@ module gameTest
         defparam VGA.RESOLUTION = "160x120";
         defparam VGA.MONOCHROME = "FALSE";
         defparam VGA.BITS_PER_COLOUR_CHANNEL = 1;
-        defparam VGA.BACKGROUND_IMAGE = "black.mif";
+        defparam VGA.BACKGROUND_IMAGE = "tron.mif";
             
     // Put your code here. Your code should produce signals x,y,colour and writeEn/plot
     // for the VGA controller, in addition to any other functionality your design may require.
@@ -70,6 +70,10 @@ module gameTest
         .clk(CLOCK_50),
         .resetn(resetn),
           .light(LEDR[0]),
+			.track1(SW[0]),
+			.track2(SW[1]),
+			.track3(SW[2]),
+			.track4(SW[3]),
         .x(x2),
         .y(y),
         .color(colour)
@@ -81,12 +85,17 @@ endmodule
 module datapath(
     input clk,
     input resetn,
-     output reg light,
+	 input track1,
+	 input track2,
+	 input track3,
+	 input track4,
+    output reg light,
     output reg [6:0] x,
     output reg [6:0] y,
     output reg [2:0] color
     );
 
+	 
      reg [6:0]  x1 = 7'd0;
     reg [6:0]  y1 = 7'd0;
      reg [6:0]  x2 = 7'd20;
@@ -113,6 +122,18 @@ module datapath(
         end
         else begin
             if (counter < 28'd1000514) begin
+				if (track1) begin
+					y_state <= 7'd0;
+				end
+				if (track2) begin
+					y2_state <= 7'd0;
+				end
+				if (track3) begin
+					y3_state <= 7'd0;
+				end
+				if (track4) begin
+					y4_state <= 7'd0;
+				end
                 if (counter < 28'd128) begin
                      x <= x1;
                      y <= y1;
@@ -261,3 +282,23 @@ module datapath(
     end
     
 endmodule
+
+//module count(
+//	input clk,
+//	input in,
+//	output reg out);
+//
+//	reg [28:0] counter;
+//	
+//	always@(posedge clk) begin
+//		if (~in)
+//			counter <= 29'd450000000;
+//		if (~(counter == 29'd0)) begin
+//			counter <= counter - 29'd1;
+//			out <= 0;
+//		end
+//		else
+//			out <= 1;
+//	end
+//	
+//endmodule
