@@ -3,7 +3,7 @@
 module gameTest
     (
         CLOCK_50,                       //  On Board 50 MHz
-        KEY, LEDR,
+        KEY,
         SW,
         VGA_CLK,                        //  VGA Clock
         VGA_HS,                         //  VGA H_SYNC
@@ -19,7 +19,6 @@ module gameTest
     input   [9:0]   SW;
     input   [3:0]   KEY;
 
-    output  [3:0]   LEDR;
     output          VGA_CLK;                //  VGA Clock
     output          VGA_HS;                 //  VGA H_SYNC
     output          VGA_VS;                 //  VGA V_SYNC
@@ -35,7 +34,7 @@ module gameTest
     wire    [6:0]   x;
     wire    [6:0]   y;
 
-    assign resetn = KEY[0];
+    assign resetn = SW[9];
     assign x      = {1'b0, x2};
 
     // Create an Instance of a VGA controller - there can be only one!
@@ -69,11 +68,14 @@ module gameTest
     datapath d0(
         .clk(CLOCK_50),
         .resetn(resetn),
-        .light(LEDR[0]),
 	.track1(SW[0]),
 	.track2(SW[1]),
 	.track3(SW[2]),
 	.track4(SW[3]),
+	.key1(KEY[3]),
+	.key2(KEY[2]),
+	.key3(KEY[1]),
+	.key4(KEY[0]),
         .x(x2),
         .y(y),
         .color(colour)
@@ -89,7 +91,10 @@ module datapath(
     input track2,
     input track3,
     input track4,
-    output reg light,
+    input key1,
+    input key2,
+    input key3,
+    input key4,
     output reg [6:0] x,
     output reg [6:0] y,
     output reg [2:0] color
@@ -120,13 +125,13 @@ module datapath(
     reg track3_state = 0;
     reg track4_state = 0;
 
-    reg [6:0] y_up   = 7'd0;
-    reg [6:0] y_down = 7'd0;
+    reg [6:0] y_up   = 7'd80;
+    reg [6:0] y_down = 7'd105;
 
     reg [6:0] score = 7'd0;
     
     always@(posedge clk) begin
-        if(!resetn) begin
+        if(resetn) begin
             x_state <= 7'd0;
             y_state <= 7'd0;
             counter <= 28'd0;
@@ -156,19 +161,19 @@ module datapath(
 		    y4_state <= 7'd0;
 
                 // Pressing Notes
-                if (key1 && y1 <= y_up && y1 >= y_down) begin
+		if (!key1 && y1 <= y_up && y1 >= y_down) begin
                     score <= score + 1;
                     track1_state <= 0;
                 end
-                if (key2 && y2 <= y_up && y2 >= y_down) begin
+		if (!key2 && y2 <= y_up && y2 >= y_down) begin
                     score <= score + 1;
                     track2_state <= 0;
                 end
-                if (key3 && y3 <= y_up && y3 >= y_down) begin
+		if (!key3 && y3 <= y_up && y3 >= y_down) begin
                     score <= score + 1;
                     track3_state <= 0;
                 end
-                if (key4 && y4 <= y_up && y4 >= y_down) begin
+		if (!key4 && y4 <= y_up && y4 >= y_down) begin
                     score <= score + 1;
                     track4_state <= 0;
                 end
