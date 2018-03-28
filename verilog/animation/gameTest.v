@@ -70,10 +70,10 @@ module gameTest
         .clk(CLOCK_50),
         .resetn(resetn),
         .light(LEDR[0]),
-		.track1(SW[0]),
-		.track2(SW[1]),
-		.track3(SW[2]),
-		.track4(SW[3]),
+	.track1(SW[0]),
+	.track2(SW[1]),
+	.track3(SW[2]),
+	.track4(SW[3]),
         .x(x2),
         .y(y),
         .color(colour)
@@ -85,10 +85,10 @@ endmodule
 module datapath(
     input clk,
     input resetn,
-	input track1,
+    input track1,
     input track2,
-	input track3,
-	input track4,
+    input track3,
+    input track4,
     output reg light,
     output reg [6:0] x,
     output reg [6:0] y,
@@ -146,14 +146,14 @@ module datapath(
                     track4_state <= 1;
 
                 // Stopping tracks when pulse is not sent
-				if (!track1_state)
-					y_state <= 7'd0;
-				if (!track2_state)
-				    y2_state <= 7'd0;
-				if (!track3_state)
-					y3_state <= 7'd0;
-				if (!track4_state)
-					y4_state <= 7'd0;
+		if (!track1_state)
+		    y_state <= 7'd0;
+		if (!track2_state)
+		    y2_state <= 7'd0;
+		if (!track3_state)
+		    y3_state <= 7'd0;
+		if (!track4_state)
+		    y4_state <= 7'd0;
 
                 // Pressing Notes
                 if (key1 && y1 <= y_up && y1 >= y_down) begin
