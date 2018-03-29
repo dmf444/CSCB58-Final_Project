@@ -41,6 +41,40 @@ module counter_7bit(INPUTCLOCK, reset_n, counter);
 
 endmodule
 
+module counter_scoreboard(INPUTCLOCK, reset_n, counter1, counter2, counter3, counter4);
+	input INPUTCLOCK;
+	input reset_n;
+	output reg [4:0] counter1, counter2, counter3, counter4;
+	
+	always @(posedge INPUTCLOCK)
+	begin
+		if(reset_n == 1'b1) begin
+			counter1 <= 0;
+			counter2 <= 0;
+			counter3 <= 0;
+			counter4 <= 0;
+			end
+		else 
+			begin
+				if (counter1 == 4'b1001) begin
+						counter1 <= 0;
+						counter2 <= counter2 + 1'b1;
+					if(counter2 == 4'b1001) begin
+						counter2 <= 0;
+						counter3 <= counter3 + 1'b1;
+					if(counter3 == 4'b1001) begin
+						counter3 <= 0;
+						counter4 <= counter4 + 1'b1;
+					end
+				   end
+					end
+				else
+					counter1 <= counter1 + 1'b1;
+			end
+	end
+
+endmodule
+
 
 module shifterbitNL(OUT, IN, SHIFT, CLK, RESET_N);
 	input IN, SHIFT, CLK, RESET_N;
