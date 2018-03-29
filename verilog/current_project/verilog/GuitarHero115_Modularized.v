@@ -4,13 +4,21 @@
 *
 ***************************************************************************************/
 
-module GuitarHero115_Modularized(KEY, LEDR, CLOCK_50, SW, LEDG, HEX0, HEX1, HEX2, HEX3);
+module GuitarHero115_Modularized(KEY, LEDR, CLOCK_50, SW, LEDG, HEX0, HEX1, HEX2, HEX3, VGA_CLK, VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_R, VGA_G, VGA_B,);
 	input [3:0] KEY;
 	input CLOCK_50;
 	input [12:0] SW;
 	output [7:0] LEDR;
 	output [4:0] LEDG;
 	output [6:0] HEX0, HEX1, HEX2, HEX3;
+	 output          VGA_CLK;                //  VGA Clock
+    output          VGA_HS;                 //  VGA H_SYNC
+    output          VGA_VS;                 //  VGA V_SYNC
+    output          VGA_BLANK_N;                //  VGA BLANK
+    output          VGA_SYNC_N;             //  VGA SYNC
+    output  [9:0]   VGA_R;                  //  VGA Red[9:0]
+    output  [9:0]   VGA_G;                  //  VGA Green[9:0]
+    output  [9:0]   VGA_B;                  //  VGA Blue[9:0]
 	
 	/////////////////////////////////////////////////////////////////
 	//
@@ -35,19 +43,28 @@ module GuitarHero115_Modularized(KEY, LEDR, CLOCK_50, SW, LEDG, HEX0, HEX1, HEX2
 	RDF tf0(.enable(1'b1), .clkin(CLOCK_50), .clkout(CLOCK_LINE));
 	//assign CLOCK_LINE = ~KEY[0];
 	
-	/*module vga_display(
-        .CLOCK_50(),
-        .KEY(),
-        .SW(),
-        .VGA_CLK(),
-        .VGA_HS(),
-        .VGA_VS(),
-        .VGA_BLANK_N(),
-        .VGA_SYNC_N(),
-        .VGA_R(),
-        .VGA_G(),
-        .VGA_B()
-    );*/
+	vga_display vga_stuff(
+        .CLOCK_50(CLOCK_50),
+        .KEY(KEY[3:0]),
+        .VGA_CLK(VGA_CLK),
+        .VGA_HS(VGA_HS),
+        .VGA_VS(VGA_VS),
+        .VGA_BLANK_N(VGA_BLANK_N),
+        .VGA_SYNC_N(VGA_SYNC_N),
+        .VGA_R(VGA_R[9:0]),
+        .VGA_G(VGA_G[9:0]),
+        .VGA_B(VGA_B[9:0]),
+		  .track1_in(vga_t1),
+		  .track2_in(vga_t2),
+		  .track3_in(vga_t3),
+		  .track4_in(vga_t4)
+    );
+	 
+	 wire vga_t1, vga_t2, vga_t3, vga_t4;
+	 assign vga_t1 = track1_out[0];
+	 assign vga_t2 = track2_out[0];
+	 assign vga_t3 = track3_out[0];
+	 assign vga_t4 = track4_out[0];
 	
 	/////////////////////////////////////////////////////////////////
 	//

@@ -4,7 +4,6 @@ module vga_display
     (
         CLOCK_50,                       //  On Board 50 MHz
         KEY,
-        SW,
         VGA_CLK,                        //  VGA Clock
         VGA_HS,                         //  VGA H_SYNC
         VGA_VS,                         //  VGA V_SYNC
@@ -12,12 +11,16 @@ module vga_display
         VGA_SYNC_N,                     //  VGA SYNC
         VGA_R,                          //  VGA Red[9:0]
         VGA_G,                          //  VGA Green[9:0]
-        VGA_B                           //  VGA Blue[9:0]
+        VGA_B,		  //  VGA Blue[9:0]
+		  track1_in,
+		  track2_in,
+		  track3_in,
+		  track4_in
     );
 
     input           CLOCK_50;               //  50 MHz
-    input   [9:0]   SW;
     input   [3:0]   KEY;
+	 input track1_in, track2_in, track3_in, track4_in;
 
     output          VGA_CLK;                //  VGA Clock
     output          VGA_HS;                 //  VGA H_SYNC
@@ -34,7 +37,7 @@ module vga_display
     wire    [6:0]   x;
     wire    [6:0]   y;
 
-    assign resetn = SW[9];
+    assign resetn = 1'b1;
     assign x      = {1'b0, x2};
 
     // Create an Instance of a VGA controller - there can be only one!
@@ -68,10 +71,10 @@ module vga_display
     datapath d0(
         .clk(CLOCK_50),
         .resetn(resetn),
-		.track1(SW[0]),
-		.track2(SW[1]),
-		.track3(SW[2]),
-		.track4(SW[3]),
+		.track1(track1_in),
+		.track2(track2_in),
+		.track3(track3_in),
+		.track4(track4_in),
 		.key1(KEY[3]),
 		.key2(KEY[2]),
 		.key3(KEY[1]),
@@ -125,13 +128,13 @@ module datapath(
     reg track3_state = 0;
     reg track4_state = 0;
 
-    reg [6:0] y_up   = 7'd80;
-    reg [6:0] y_down = 7'd100;
+    reg [6:0] y_up   = 7'd100;
+    reg [6:0] y_down = 7'd80;
 
     reg [6:0] score = 7'd0;
     
-    always@(posedge clk) begin
-        if(resetn) begin
+    always@(posedge clk, negedge resetn) begin
+        if(!resetn) begin
             x_state <= 7'd0;
             y_state <= 7'd0;
             counter <= 28'd0;
@@ -179,21 +182,24 @@ module datapath(
 	                end
 
                 // Reseting tracks when they hit the bottom of the screen
-                if (y1 == 104)
+                if (y1 == 127)
                     track1_state <= 0;
-                if (y2 == 104)
+                if (y2 == 127)
                     track2_state <= 0;
-                if (y3 == 104)
+                if (y3 == 127)
                     track3_state <= 0;
-                if (y4 == 104)
-                    track4_state <= 0;
+                if (y4 == 127)
+						  track4_state <= 0;
 
                 // DRAW
                 // First Track (Drawing)
                 if (counter < 28'd128) begin
                     x <= x1;
                     y <= y1;
-                    color <= 3'b100;
+						  if (y_state == 0)
+						      color <= 3'b000;
+						  else
+						      color <= 3'b100;
                     if (counter != 28'd0) 
                         x1 <= x1 + 7'd1;
                     if (x1 == 7'd15) begin
@@ -211,7 +217,10 @@ module datapath(
                 if (counter < 28'd256 && counter >= 28'd129) begin
                     x <= x2;
                     y <= y2;
-                    color <= 3'b110;
+                    if (y2_state == 0)
+						      color <= 3'b000;
+						  else
+						      color <= 3'b110;
                     if (counter != 28'd128) 
                         x2 <= x2 + 7'd1;
                     if (x2 == 7'd35) begin
@@ -229,7 +238,10 @@ module datapath(
                 if (counter < 28'd384 && counter >= 28'd256) begin
                     x <= x3;
                     y <= y3;
-                    color <= 3'b111;
+                    if (y3_state == 0)
+						      color <= 3'b000;
+						  else
+						      color <= 3'b111;
                     if (counter != 28'd256) 
                         x3 <= x3 + 7'd1;
                     if (x3 == 7'd55) begin
@@ -247,7 +259,10 @@ module datapath(
                 if (counter < 28'd512 && counter >= 28'd384) begin
                     x <= x4;
                     y <= y4;
-                    color <= 3'b011;
+                    if (y4_state == 0)
+						      color <= 3'b000;
+						  else
+						      color <= 3'b011;
                     if (counter != 28'd384) 
                         x4 <= x4 + 7'd1;
                     if (x4 == 7'd75) begin
@@ -267,7 +282,10 @@ module datapath(
                     if (counter < 28'd1000128) begin
                         x <= x1;
                         y <= y1;
-                        color <= 3'b000;
+								if (y1 == 80 || y1 == 100)
+									color <= 3'b110;
+								else
+									color <= 3'b000;
                         if (counter != 28'd1000000)
                             x1 <= x1 + 7'd1;
                         if (x1 == 7'd15) begin
@@ -290,7 +308,10 @@ module datapath(
                     if (counter < 28'd1000256 && counter >= 28'd1000128) begin
                         x <= x2;
                         y <= y2;
-                        color <= 3'b000;
+                        if (y2 == 80 || y2 == 100)
+									color <= 3'b110;
+								else
+									color <= 3'b000;
                         if (counter != 28'd1000128)
                             x2 <= x2 + 7'd1;
                         if (x2 == 7'd35) begin
@@ -313,7 +334,10 @@ module datapath(
                     if (counter < 28'd1000384 && counter >= 28'd1000256) begin
                         x <= x3;
                         y <= y3;
-                        color <= 3'b000;
+                        if (y3 == 80 || y3 == 100)
+									color <= 3'b110;
+								else
+									color <= 3'b000;
                         if (counter != 28'd1000256)
                             x3 <= x3 + 7'd1;
                         if (x3 == 7'd55) begin
@@ -336,7 +360,10 @@ module datapath(
                     if (counter < 28'd1000512 && counter >= 28'd1000384) begin
                         x <= x4;
                         y <= y4;
-                        color <= 3'b000;
+                        if (y4 == 80 || y4 == 100)
+									color <= 3'b110;
+								else
+									color <= 3'b000;
                         if (counter != 28'd1000384)
                             x4 <= x4 + 7'd1;
                         if (x4 == 7'd75) begin
@@ -351,7 +378,7 @@ module datapath(
                     end
                     // Fourth Track (Resetin the states)
                     if (counter == 28'd1000513) begin
-                        y4 <= y4_state;
+								y4 <= y4_state;
                         x4 <= 7'd60;
                     end
                 end
