@@ -81,7 +81,8 @@ The keys on the DE2 board reminded us of the buttons in Guitar Hero. It also see
 ------------
 Attributions
 ------------
-NOTHING ATM.
+module rate_divider_fast -> Appears in untestedsidemodules.v as RDF
+Taken From: https://github.com/brian-chim/b58_snake/blob/master/FinalFinal/helpers2.v
 
 
 ------------
@@ -100,3 +101,6 @@ Week 2:
 -Able to output audio and learned how to modify the notes being outputted. It now outputs the first few seconds of the Mario Theme.
 -VGA display can now display 4 separate pegs moving down the screen. Now working on hardcoding each peg when/where to appear.
 -Need to start putting together the VGA diplay, the audio, and the responsive part of the game together.
+
+Week 3:
+-Created a full board running game. 
