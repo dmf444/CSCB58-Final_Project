@@ -59,7 +59,7 @@ module gameTest
         defparam VGA.RESOLUTION = "160x120";
         defparam VGA.MONOCHROME = "FALSE";
         defparam VGA.BITS_PER_COLOUR_CHANNEL = 1;
-        defparam VGA.BACKGROUND_IMAGE = "tron.mif";
+        defparam VGA.BACKGROUND_IMAGE = "background.mif";
             
     // Put your code here. Your code should produce signals x,y,colour and writeEn/plot
     // for the VGA controller, in addition to any other functionality your design may require.
@@ -68,14 +68,14 @@ module gameTest
     datapath d0(
         .clk(CLOCK_50),
         .resetn(resetn),
-	.track1(SW[0]),
-	.track2(SW[1]),
-	.track3(SW[2]),
-	.track4(SW[3]),
-	.key1(KEY[3]),
-	.key2(KEY[2]),
-	.key3(KEY[1]),
-	.key4(KEY[0]),
+		.track1(SW[0]),
+		.track2(SW[1]),
+		.track3(SW[2]),
+		.track4(SW[3]),
+		.key1(KEY[3]),
+		.key2(KEY[2]),
+		.key3(KEY[1]),
+		.key4(KEY[0]),
         .x(x2),
         .y(y),
         .color(colour)
@@ -126,7 +126,7 @@ module datapath(
     reg track4_state = 0;
 
     reg [6:0] y_up   = 7'd80;
-    reg [6:0] y_down = 7'd105;
+    reg [6:0] y_down = 7'd100;
 
     reg [6:0] score = 7'd0;
     
@@ -151,32 +151,32 @@ module datapath(
                     track4_state <= 1;
 
                 // Stopping tracks when pulse is not sent
-		if (!track1_state)
-		    y_state <= 7'd0;
-		if (!track2_state)
-		    y2_state <= 7'd0;
-		if (!track3_state)
-		    y3_state <= 7'd0;
-		if (!track4_state)
-		    y4_state <= 7'd0;
+				if (!track1_state)
+				    y_state <= 7'd0;
+				if (!track2_state)
+				    y2_state <= 7'd0;
+				if (!track3_state)
+				    y3_state <= 7'd0;
+				if (!track4_state)
+				    y4_state <= 7'd0;
 
                 // Pressing Notes
-		if (!key1 && y1 <= y_up && y1 >= y_down) begin
-                    score <= score + 1;
+				if (!key1 && y1 <= y_up && y1 >= y_down) begin
+	                score <= score + 1;
                     track1_state <= 0;
-                end
-		if (!key2 && y2 <= y_up && y2 >= y_down) begin
+                	end
+				if (!key2 && y2 <= y_up && y2 >= y_down) begin
                     score <= score + 1;
                     track2_state <= 0;
-                end
-		if (!key3 && y3 <= y_up && y3 >= y_down) begin
+		            end
+				if (!key3 && y3 <= y_up && y3 >= y_down) begin
                     score <= score + 1;
                     track3_state <= 0;
-                end
-		if (!key4 && y4 <= y_up && y4 >= y_down) begin
+	                end
+				if (!key4 && y4 <= y_up && y4 >= y_down) begin
                     score <= score + 1;
                     track4_state <= 0;
-                end
+	                end
 
                 // Reseting tracks when they hit the bottom of the screen
                 if (y1 == 104)
