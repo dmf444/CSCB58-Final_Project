@@ -34,16 +34,19 @@ def to_bin(number):
 
 if(__name__ == "__main__"):
     store_list = []
-    type = input("NOTE_LEN input (Num/Name):")
-    while(type.lower() != "num" or type.lower() != "name"):
+    while True:
         type = input("NOTE_LEN input (Num/Name):")
+        h = type.lower()
+        if(h == "num" or h == "name"):
+            break
     # This is the note generator
+    store_list.append("0:TT=8'h1f;")
     if(type == "num"):
         loopers = input("NOTE_LEN NOTE:")
         while(loopers != "END"):
             nums = loopers.split(" ")
             try:
-                n = note_maker(len(store_list) + 1, nums[0], nums[1])
+                n = note_maker(len(store_list), nums[0], nums[1])
                 store_list.append(n)
             except Exception:
                 print("MALFORMED INPUT. PLEASE RE-ENTER.")
@@ -53,11 +56,11 @@ if(__name__ == "__main__"):
         while(loopers != "END"):
             nums = loopers.split(" ")
             try:
-                n = note_maker_named(len(store_list) + 1, nums[0], nums[1])
+                n = note_maker_named(len(store_list), nums[0], nums[1])
                 store_list.append(n)
             except Exception:
                 print("MALFORMED INPUT. PLEASE RE-ENTER.")
             loopers = input("Number number:")
-
+    store_list.append(str(len(store_list)) + ":TT=8'h1f;")
     for i in store_list:
         print(i)
