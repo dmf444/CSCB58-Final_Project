@@ -185,7 +185,7 @@ module datapath(
         if (!track4_state)
           y4_state <= 8'd0;
 
-        // Pressing Notes
+        // Registering pressed notes and incrementing score for player
         if (!key1 && y_state <= y_up && y_state >= y_down) begin
           score1 <= score1 + 1;
           track1_state <= 0;
@@ -239,6 +239,7 @@ module datapath(
           end
         end
 
+        // Register to display score on hex displays
         if (score1 >= 4'd10) begin
           score1 <= 4'd0;
           score2 <= score2 + 1;
