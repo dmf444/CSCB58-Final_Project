@@ -1,16 +1,17 @@
--- Copyright (C) 2017  Intel Corporation. All rights reserved.
--- Your use of Intel Corporation's design tools, logic functions 
+-- Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
+-- Your use of Altera Corporation's design tools, logic functions 
 -- and other software and tools, and its AMPP partner logic 
 -- functions, and any output files from any of the foregoing 
 -- (including device programming or simulation files), and any 
 -- associated documentation or information are expressly subject 
--- to the terms and conditions of the Intel Program License 
--- Subscription Agreement, the Intel Quartus Prime License Agreement,
--- the Intel FPGA IP License Agreement, or other applicable license
--- agreement, including, without limitation, that your use is for
--- the sole purpose of programming logic devices manufactured by
--- Intel and sold by Intel or its authorized distributors.  Please
--- refer to the applicable agreement for further details.
+-- to the terms and conditions of the Altera Program License 
+-- Subscription Agreement, the Altera Quartus Prime License Agreement,
+-- the Altera MegaCore Function License Agreement, or other 
+-- applicable license agreement, including, without limitation, 
+-- that your use is for the sole purpose of programming logic 
+-- devices manufactured by Altera and sold by Altera or its 
+-- authorized distributors.  Please refer to the applicable 
+-- agreement for further details.
 
 -- Quartus Prime generated Memory Initialization File (.mif)
 
@@ -21,11 +22,98 @@ ADDRESS_RADIX=UNS;
 DATA_RADIX=UNS;
 
 CONTENT BEGIN
-	[0..39]  :   1;
-	[40..46]  :   0;
-	47   :   1;
-	[48..50]  :   0;
-	51   :   1;
-	[52..126]  :   0;
-	127  :   1;
+	[0..2]  :   0;
+	3    :   1;
+	[4..5]  :   0;
+	6    :   1;
+	[7..8]  :   0;
+	[9..39]  :   1;
+	40   :   8;
+	41   :   4;
+	42   :   2;
+	43   :   1;
+	44   :   0;
+	45   :   8;
+	46   :   4;
+	47   :   2;
+	48   :   1;
+	49   :   0;
+	50   :   8;
+	51   :   4;
+	52   :   2;
+	53   :   1;
+	54   :   0;
+	55   :   8;
+	56   :   4;
+	57   :   2;
+	58   :   1;
+	59   :   0;
+	60   :   8;
+	61   :   4;
+	62   :   2;
+	63   :   1;
+	64   :   0;
+	65   :   8;
+	66   :   4;
+	67   :   2;
+	68   :   1;
+	69   :   0;
+	70   :   8;
+	71   :   4;
+	72   :   2;
+	73   :   1;
+	74   :   0;
+	75   :   8;
+	76   :   4;
+	77   :   2;
+	78   :   1;
+	79   :   0;
+	80   :   8;
+	81   :   4;
+	82   :   2;
+	83   :   1;
+	84   :   0;
+	85   :   8;
+	86   :   4;
+	87   :   2;
+	88   :   1;
+	89   :   0;
+	90   :   8;
+	91   :   4;
+	92   :   2;
+	93   :   1;
+	94   :   0;
+	95   :   8;
+	96   :   4;
+	97   :   2;
+	98   :   1;
+	99   :   0;
+	100  :   8;
+	101  :   4;
+	102  :   2;
+	103  :   1;
+	104  :   0;
+	105  :   8;
+	106  :   4;
+	107  :   2;
+	108  :   1;
+	109  :   0;
+	110  :   8;
+	111  :   4;
+	112  :   2;
+	113  :   1;
+	114  :   0;
+	115  :   8;
+	116  :   4;
+	117  :   2;
+	118  :   1;
+	119  :   0;
+	120  :   8;
+	121  :   4;
+	122  :   2;
+	123  :   1;
+	124  :   0;
+	125  :   8;
+	126  :   4;
+	127  :   2;
 END;
