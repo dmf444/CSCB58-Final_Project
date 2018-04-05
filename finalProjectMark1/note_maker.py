@@ -4,7 +4,8 @@
 
 
 def note_maker(step, time, note):
-    note_lookup = {1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 10}
+    note_lookup = {-5: 12, -6: 13, 1: 1, 2: 2, 3: 3,
+                   4: 4, 5: 5, 6: 6, 7: 7, 8: 10}
     bin_len = to_bin(time)
     bin_note = to_bin(note_lookup[int(note)])
     return str(step) + ":TT=8'b" + bin_len + bin_note + ";"
@@ -19,10 +20,11 @@ def note_maker_named(step, time, note):
     # w - Whole Note
     named_producer = {'q': 1, "e": 8, "de": 9, "s": 15, "h": 2, "w": 4,
                       "dq": 3}
-    note_lookup = {1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 10}
-    bin_len = to_bin(named_producer[time])
-    bin_note = to_bin(note_lookup[int(note)])
-    return str(step) + ":TT=8'b" + bin_len + bin_note + ";"
+    #note_lookup = {1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 10}
+    #bin_len = to_bin(named_producer[time])
+    #bin_note = to_bin(note_lookup[int(note)])
+    #return str(step) + ":TT=8'b" + bin_len + bin_note + ";"
+    return note_maker(step, named_producer[time], note)
 
 
 def to_bin(number):
@@ -50,7 +52,7 @@ if(__name__ == "__main__"):
                 store_list.append(n)
             except Exception:
                 print("MALFORMED INPUT. PLEASE RE-ENTER.")
-            loopers = input("Number number:")
+            loopers = input("NOTE_LEN NOTE:")
     else:
         loopers = input("NOTE_TYPE NOTE:")
         while(loopers != "END"):
@@ -60,7 +62,7 @@ if(__name__ == "__main__"):
                 store_list.append(n)
             except Exception:
                 print("MALFORMED INPUT. PLEASE RE-ENTER.")
-            loopers = input("Number number:")
+            loopers = input("NOTE_TYPE NOTE:")
     store_list.append(str(len(store_list)) + ":TT=8'h1f;")
     for i in store_list:
         print(i)
