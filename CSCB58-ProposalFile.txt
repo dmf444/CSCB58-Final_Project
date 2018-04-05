@@ -103,4 +103,8 @@ Week 2:
 -Need to start putting together the VGA diplay, the audio, and the responsive part of the game together.
 
 Week 3:
--Created a full board running game. 
+-Created a full board running game.
+-Created the responsive portion by using counters from the VGA display and checking if a player pressed the correct key in order to earn points.
+-Added a counter for the points the player earns.
+-Created two audio tracks that play from the speaker during gameplay. Need to update mif files to sync the notes with the audio tracks.
+-Merged the two portions of the code together, the VGA display and the game logic.
