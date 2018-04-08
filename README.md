@@ -49,6 +49,12 @@ This project emulates a simple version of Guitar Hero. RAM tracks load preset va
    * Test2-SimpleTrack
    
       Take the RAM from TEST1 and see if it can be loaded into a shifter, and moved accordingly.
+   * Test3-LEDHero
+   
+      This is one RAM track loading properly into it's shifters, then shifting down the line. Using KEY[3], you can actually hit the button and accumulate a score. It's rather difficult, and takes practice (and the "good" DE2-115 board!).
+   * Test4-4RAMShifts
+   
+      Removed the LED function from Test3, and added 3 more RAM blocks, 3 more 8bit shifter and a more complex add score system. Rather close in comparison to the last test, but now can function as a 4-track guitar hero.
    * VGA-Tests
    
       All the code for the VGA display to function. gameTest.v is the root file.
