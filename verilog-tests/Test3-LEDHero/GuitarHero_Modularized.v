@@ -29,7 +29,7 @@ module GuitarHero_Modularized(KEY, LEDR, CLOCK_50, SW, LEDG, HEX0, HEX1, HEX2, H
 	
 	/*RAM DATA TRACK #1, PRELOADED FROM  .mif*/
 	wire [3:0] track1_out;
-	ram_track2 track1(.address(ram_pattern_lookup),.clock(CLOCK_50),.data(empty_data),.wren(never_write),.q(track1_out));
+	ram_track1 track1(.address(ram_pattern_lookup),.clock(CLOCK_50),.data(empty_data),.wren(never_write),.q(track1_out));
 	wire [6:0] ram_pattern_lookup;
 	counter_7bit track_pattern_selection(.INPUTCLOCK(shouldLoad), .reset_n(RESET_GAME), .counter(ram_pattern_lookup));
 	
