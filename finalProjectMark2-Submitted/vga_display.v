@@ -20,7 +20,7 @@ module vga_display
     h1,
     h2,
     h3,
-	 reset
+    reset
   );
 
   input           CLOCK_50;               //  50 MHz
@@ -158,11 +158,11 @@ module datapath(
     if(!resetn) begin
       x_state <= 8'd0;
       y_state <= 8'd0;
-		x2_state <= 8'd0;
+      x2_state <= 8'd0;
       y2_state <= 8'd0;
-		x3_state <= 8'd0;
+      x3_state <= 8'd0;
       y3_state <= 8'd0;
-		x4_state <= 8'd0;
+      x4_state <= 8'd0;
       y4_state <= 8'd0;
       counter <= 28'd0;
       score1 <= 0;
@@ -201,8 +201,8 @@ module datapath(
           if (!key1 && (y_state > y_up || y_state < y_down) && y_state > 4) begin
             score1 <= 0;
             score2 <= 0;
-				track1_state <= 0;
-				y_state <= 8'd0;
+            track1_state <= 0;
+            y_state <= 8'd0;
           end
         end
         if (!key2 && y2_state <= y_up && y2_state >= y_down) begin
@@ -214,8 +214,8 @@ module datapath(
           if (!key2 && (y2_state > y_up || y2_state < y_down) && y2_state > 4) begin
             score1 <= 0;
             score2 <= 0;
-				track2_state <= 0;
-				y2_state <= 8'd0;
+            track2_state <= 0;
+            y2_state <= 8'd0;
           end
         end
         if (!key3 && y3_state <= y_up && y3_state >= y_down) begin
@@ -227,8 +227,8 @@ module datapath(
           if (!key3 && (y3_state > y_up || y3_state < y_down) && y3_state > 4) begin
             score1 <= 0;
             score2 <= 0;
-				track3_state <= 0;
-				y3_state <= 8'd0;
+            track3_state <= 0;
+            y3_state <= 8'd0;
           end
         end
         if (!key4 && y4_state <= y_up && y4_state >= y_down) begin
@@ -240,8 +240,8 @@ module datapath(
           if (!key4 && (y4_state > y_up || y4_state < y_down) && y4_state > 4) begin
             score1 <= 0;
             score2 <= 0;
-				track4_state <= 0;
-				y4_state <= 8'd0;
+            track4_state <= 0;
+            y4_state <= 8'd0;
           end
         end
 
@@ -250,16 +250,18 @@ module datapath(
           score1 <= 4'd0;
           score2 <= score2 + 1;
         end
-		  
-		  if (score2 > score4) begin
-				score4 <= score2;
-		      score3 <= score1;
-		  end else begin
-			if (score2 == score4) begin
-				if (score1 > score3)
-				score3 <= score1;
-			end
-		end
+        
+        // Highscore number
+        if (score2 > score4) begin
+          score4 <= score2;
+          score3 <= score1;
+        end else begin
+          if (score2 == score4) begin
+            if (score1 > score3)
+              score3 <= score1;
+          end
+        end
+
         // Reseting tracks when they hit the bottom of the screen
         if (y1 == 127)
           track1_state <= 0;
