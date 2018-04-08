@@ -1,0 +1,124 @@
+-- Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
+-- Your use of Altera Corporation's design tools, logic functions 
+-- and other software and tools, and its AMPP partner logic 
+-- functions, and any output files from any of the foregoing 
+-- (including device programming or simulation files), and any 
+-- associated documentation or information are expressly subject 
+-- to the terms and conditions of the Altera Program License 
+-- Subscription Agreement, the Altera Quartus Prime License Agreement,
+-- the Altera MegaCore Function License Agreement, or other 
+-- applicable license agreement, including, without limitation, 
+-- that your use is for the sole purpose of programming logic 
+-- devices manufactured by Altera and sold by Altera or its 
+-- authorized distributors.  Please refer to the applicable 
+-- agreement for further details.
+
+-- Quartus Prime generated Memory Initialization File (.mif)
+
+WIDTH=4;
+DEPTH=128;
+
+ADDRESS_RADIX=UNS;
+DATA_RADIX=UNS;
+
+CONTENT BEGIN
+	0    :   0;
+	1    :   1;
+	[2..3]  :   0;
+	4    :   1;
+	5    :   0;
+	6    :   1;
+	7    :   0;
+	8    :   1;
+	[9..31]  :   2;
+	[32..36]  :   1;
+	[37..38]  :   0;
+	[39..40]  :   1;
+	41   :   0;
+	42   :   8;
+	43   :   4;
+	44   :   2;
+	45   :   1;
+	46   :   0;
+	47   :   8;
+	48   :   4;
+	49   :   2;
+	50   :   1;
+	51   :   0;
+	52   :   8;
+	53   :   4;
+	54   :   2;
+	55   :   1;
+	56   :   0;
+	57   :   8;
+	58   :   4;
+	59   :   2;
+	60   :   1;
+	61   :   0;
+	62   :   8;
+	63   :   4;
+	64   :   2;
+	65   :   1;
+	66   :   0;
+	67   :   8;
+	68   :   4;
+	69   :   2;
+	70   :   1;
+	71   :   0;
+	72   :   8;
+	73   :   4;
+	74   :   2;
+	75   :   1;
+	76   :   0;
+	77   :   8;
+	78   :   4;
+	79   :   2;
+	80   :   1;
+	81   :   0;
+	82   :   8;
+	83   :   4;
+	84   :   2;
+	85   :   1;
+	86   :   0;
+	87   :   8;
+	88   :   4;
+	89   :   2;
+	90   :   1;
+	91   :   0;
+	92   :   8;
+	93   :   4;
+	94   :   2;
+	95   :   1;
+	96   :   0;
+	97   :   8;
+	98   :   4;
+	99   :   2;
+	100  :   1;
+	101  :   0;
+	102  :   8;
+	103  :   4;
+	104  :   2;
+	105  :   1;
+	106  :   0;
+	107  :   8;
+	108  :   4;
+	109  :   2;
+	110  :   1;
+	111  :   0;
+	112  :   8;
+	113  :   4;
+	114  :   2;
+	115  :   1;
+	116  :   0;
+	117  :   8;
+	118  :   4;
+	119  :   2;
+	120  :   1;
+	121  :   0;
+	122  :   8;
+	123  :   4;
+	124  :   2;
+	125  :   1;
+	126  :   0;
+	127  :   8;
+END;
