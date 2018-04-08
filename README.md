@@ -58,4 +58,10 @@ This project emulates a simple version of Guitar Hero. RAM tracks load preset va
    * VGA-Tests
    
       All the code for the VGA display to function. gameTest.v is the root file.
+      
+## Attributions:
 
+From [brian-chim/b58_snake](https://github.com/brian-chim/b58_snake/blob/master/FinalFinal/helpers2.v#L28) we took module *rate_divider_fast()*, as seen in untestedsidemodules.v as module *RDF()*
+
+From [altera - Demo CD](https://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&CategoryNo=139&No=502&PartNo=4) we took all of the code for the Music Synthesiser. Most of it was modified to remove some extra feature and change the default song, but altera's fingerprint is still clearly visible on the code. This is all the files included in the audio_module folder.
+ 
