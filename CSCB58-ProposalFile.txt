@@ -38,7 +38,7 @@ Project Title: Guitar Hero 115
 Project Description:
 A single song version of guitar hero, built on the DE2-115 board.
 
-Video URL:
+Video URL: https://www.youtube.com/watch?v=A4jEJVYFJmg&feature=youtu.be
 
 Code URL: https://github.com/dmf444/CSCB58-Final_Project
 
