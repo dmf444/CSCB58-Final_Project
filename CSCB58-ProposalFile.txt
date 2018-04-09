@@ -108,3 +108,9 @@ Week 3:
 -Added a counter for the points the player earns.
 -Created two audio tracks that play from the speaker during gameplay. Need to update mif files to sync the notes with the audio tracks.
 -Merged the two portions of the code together, the VGA display and the game logic.
+
+Presentation:
+-Created 2 song tacks: Amazing Grace and Jesus Christ has Risen from The Dead. The reason for the 2 song choices was because we were limited to a major scale and only 1 octave. Which means we only had 8 available notes that we can use. We decided to choose Amazing Grace for our presentation and we semi-synced the notes on screen with the audio.
+-We also implemented a high score system that displays on HEX2 and HEX3 while HEX0 and HEX1 displayed the current score.
+-The game functions as inteded. When the player presses a key when the peg is in the "sweet spot" then the player gains a point. When they press a key when the peg is outside of the "sweet spot" then their score resets back to 0. Finally, if the player allows the peg to pass by then they neither gain nor lose points.
+-Fixed the visual bug where 1 pixel on the bottom right of each peg was missing.
