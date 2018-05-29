@@ -3,7 +3,7 @@ Our project for the DE2-115 board. What did we make? Guitar Hero 115!
 
 ##### Here's some useful information:
 
-Video Link: [YouTube](http://github.com)
+Video Link: [YouTube](https://youtu.be/A4jEJVYFJmg)
 
 
 # What our Project does
