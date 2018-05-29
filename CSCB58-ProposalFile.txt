@@ -4,7 +4,7 @@ Team Member A
 -------------
 First Name: David
 Last Name: Fernandes
-Student Number: 1003155444
+Student Number: {REDACTED}
 UofT E-mail Address: david.fernandes@mail.utoronto.ca
 
 
@@ -12,21 +12,21 @@ Team Member B
 -------------
 First Name: Stefan
 Last Name: Mitic
-Student Number: 1003028225
+Student Number: {REDACTED}
 UofT E-mail Address: stefan.mitic@mail.utoronto.ca
 
 Team Member C
 -------------
 First Name: Hessamoddin
 Last Name: Sharifpour
-Student Number: 1002376546
+Student Number: {REDACTED}
 UofT E-mail Address: hessamoddin.sharifpour@mail.utoronto.ca
 
 Team Member D
 -------------
 First Name: Arik
 Last Name: Bautista
-Student Number: 1003299192
+Student Number: {REDACTED}
 UofT E-mail Address: arik.bautista@mail.utoronto.ca
 
 ---------------
